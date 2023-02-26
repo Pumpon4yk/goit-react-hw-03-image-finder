@@ -23,7 +23,7 @@ export class App extends Component {
   componentDidUpdate() {
     if (this.state.page > 1) {
       window.scrollBy({
-        top: window.innerHeight - 150,
+        top: window.innerHeight - 260,
         behavior: 'smooth',
       });
       return;
