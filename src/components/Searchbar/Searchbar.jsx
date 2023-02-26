@@ -9,12 +9,13 @@ const Searchbar = ({ onSubmit }) => {
     <Header>
       <Formik
         initialValues={{ name: '' }}
-        onSubmit={values => {
+        onSubmit={(values, actions) => {
           const { name } = values;
           if (!name.trim()) {
             return;
           }
           onSubmit(name.trim());
+          actions.resetForm()
         }}
       >
         {props => (
