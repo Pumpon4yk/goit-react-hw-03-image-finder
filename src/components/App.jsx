@@ -21,7 +21,14 @@ export class App extends Component {
   };
 
   componentDidUpdate() {
-    if (this.state.page > 2) window.scrollBy(0, window.innerHeight - 210);
+    if (this.state.page > 1) {
+      window.scrollBy({
+        top: window.innerHeight - 150,
+        behavior: 'smooth',
+      });
+      return;
+    }
+    window.scrollBy({ top: -window.innerHeight, behavior: 'smooth' });
   }
 
   getName = async (name, page = 1) => {
@@ -34,7 +41,6 @@ export class App extends Component {
       totalImg: list.totalHits,
       loader: false,
     });
-    window.scrollBy(0, -window.innerHeight);
   };
 
   onLoad = async () => {
