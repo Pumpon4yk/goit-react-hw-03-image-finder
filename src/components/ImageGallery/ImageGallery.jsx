@@ -3,7 +3,7 @@ import ImageGalleryItem from 'components/ImageGalleryItem';
 
 const ImageGallery = ({ list, onClick }) => {
   return (
-    <List id="gallery">
+    <List>
       {list.map(({ id, webformatURL, largeImageURL, tag }) => (
         <ImageGalleryItem
           key={id}
