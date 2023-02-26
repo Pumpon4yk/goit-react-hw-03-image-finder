@@ -1,6 +1,8 @@
 import { Backdrop, ModalWindow } from './Modal.styled';
 import { createPortal } from 'react-dom';
 import { Component } from 'react';
+import PropTypes from 'prop-types';
+
 
 const portal = document.querySelector('#modal-root');
 
@@ -31,6 +33,10 @@ class Modal extends Component {
       portal
     );
   }
+}
+
+Modal.propTypes = {
+  children: PropTypes.object.isRequired
 }
 
 export default Modal;
