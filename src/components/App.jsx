@@ -20,17 +20,6 @@ export class App extends Component {
     tag: '',
   };
 
-  componentDidUpdate() {
-    if (this.state.page > 1) {
-      window.scrollBy({
-        top: window.innerHeight - 260,
-        behavior: 'smooth',
-      });
-      return;
-    }
-    window.scrollBy({ top: -window.innerHeight, behavior: 'smooth' });
-  }
-
   getName = async (name, page = 1) => {
     this.setState({ loader: true });
     const list = await getImg(name, page);
@@ -41,6 +30,10 @@ export class App extends Component {
       totalImg: list.totalHits,
       loader: false,
     });
+
+    setTimeout(() => {
+      window.scrollBy({ top: -window.innerHeight, behavior: 'smooth' });
+    }, 0);
   };
 
   onLoad = async () => {
@@ -53,6 +46,10 @@ export class App extends Component {
       imgList: [...state.imgList, ...resp.hits],
       loader: false,
     }));
+
+    setTimeout(() => {
+      window.scrollBy({ top: window.innerHeight - 260, behavior: 'smooth' });
+    }, 0);
   };
 
   togglModal = () => {
